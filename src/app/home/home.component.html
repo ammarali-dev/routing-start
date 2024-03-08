@@ -1,3 +1,13 @@
 <h4>Welcome to Server Manager 4.0</h4>
 <p>Manage your Servers and Users.</p>
-<button class="btn btn-primary" (click)="onLoadServer()">Load Servers</button>
+<button class="btn btn-primary m-1" (click)="onLoadServer(1)">
+  Load Server 1
+</button>
+<div class="mt-5">
+  <ng-container *ngIf="isLoggedIn; else loggedOut">
+    <div class="btn btn-danger m-1" (click)="onLogout()">Logout</div>
+  </ng-container>
+  <ng-template #loggedOut>
+    <div class="btn btn-success m-1" (click)="onLogin()">Login</div>
+  </ng-template>
+</div>
